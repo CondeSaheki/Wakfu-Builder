@@ -1,0 +1,17 @@
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\bin\Debug\net8.0\WakfuBuilder.exe
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\bin\Debug\net8.0\WakfuBuilder.deps.json
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\bin\Debug\net8.0\WakfuBuilder.runtimeconfig.json
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\bin\Debug\net8.0\WakfuBuilder.dll
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\bin\Debug\net8.0\WakfuBuilder.pdb
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.AssemblyInfoInputs.cache
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.AssemblyInfo.cs
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.csproj.CoreCompileInputs.cache
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.dll
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\refint\WakfuBuilder.dll
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.pdb
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.genruntimeconfig.cache
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\ref\WakfuBuilder.dll
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBuilder.csproj.AssemblyReference.cache
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\xilinux is dead\Desktop\Programming\WakfuBuilder\obj\Debug\net8.0\WakfuBui.6B70F82C.Up2Date
