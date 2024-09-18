@@ -5,13 +5,12 @@ namespace WakfuBuider;
 
 public static class Parser
 {
-    public static List<Item> Items(string path)
+    public static List<Item> Items(string jsonContent)
     {
-        string jsonData = File.ReadAllText(path);
         List<Item> items = [];
         try
         {
-            var json = JsonConvert.DeserializeObject<List<Item>>(jsonData, new JsonSerializerSettings
+            var json = JsonConvert.DeserializeObject<List<Item>>(jsonContent, new JsonSerializerSettings
             {
                 Error = (sender, args) =>
                 {
@@ -28,9 +27,8 @@ public static class Parser
         return items;
     }
 
-    public static List<Sublimation> Sublimations(string filePath)
+    public static List<Sublimation> Sublimations(string jsonContent)
     {
-        var jsonContent = File.ReadAllText(filePath);
         var jsonList = JsonConvert.DeserializeObject<List<dynamic>>(jsonContent);
         if (jsonList == null) return [];
 
@@ -147,12 +145,11 @@ public static class Parser
         return sublimations;
     }
 
-    public static Dictionary<int, List<LocalizedString>> SublimationEffects(string path)
+    public static Dictionary<int, List<LocalizedString>> SublimationStates(string jsonContent)
     {
-        string jsonData = File.ReadAllText(path);
         var effectsDict = new Dictionary<int, List<LocalizedString>>();
 
-        var jsonArray = JArray.Parse(jsonData);
+        var jsonArray = JArray.Parse(jsonContent);
 
         foreach (var item in jsonArray)
         {

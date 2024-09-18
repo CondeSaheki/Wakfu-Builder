@@ -11,4 +11,14 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="data/items.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="data/Sublimations.json" />
+  </ItemGroup>
+    <ItemGroup>
+    <EmbeddedResource Include="data/SublimationsStates.json" />
+  </ItemGroup>
+
 </Project>
