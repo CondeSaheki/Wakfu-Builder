@@ -36,7 +36,7 @@ public class ItemIndentified : Item
                 if (item.Slot3.Type != null) slots.Add((EnchatmentType)item.Slot3.Type);
                 if (item.Slot4.Type != null) slots.Add((EnchatmentType)item.Slot4.Type);
                 if (item.Sublimation.Combination.Length > slots.Count) return false;
-                if (!Utils.ContainsSequence([.. slots], item.Sublimation.Combination)) return false;
+                if (!Util.ContainsSequence([.. slots], item.Sublimation.Combination)) return false;
             }
         }
 

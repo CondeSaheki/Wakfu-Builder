@@ -20,10 +20,10 @@ public class BuildGenerator
 
         var amulets = filteredItems.Where(item => item.Type == ItemType.Amulet).ToList();
         var rings = filteredItems.Where(item => item.Type == ItemType.Ring).ToList();
-        var boots = filteredItems.Where(item => item.Type == ItemType.Boots).ToList();
+        var boots = filteredItems.Where(item => item.Type == ItemType.Boot).ToList();
         var belts = filteredItems.Where(item => item.Type == ItemType.Belt).ToList();
         var helmets = filteredItems.Where(item => item.Type == ItemType.Helmet).ToList();
-        var epaulettes = filteredItems.Where(item => item.Type == ItemType.Epaulettes).ToList();
+        var epaulettes = filteredItems.Where(item => item.Type == ItemType.Epaulette).ToList();
         var breastplates = filteredItems.Where(item => item.Type == ItemType.Breastplate).ToList();
         var cloaks = filteredItems.Where(item => item.Type == ItemType.Cloak).ToList();
         var emblems = filteredItems.Where(item => item.Type == ItemType.Emblem).ToList();
@@ -32,6 +32,42 @@ public class BuildGenerator
         var offHands = filteredItems.Where(Item.IsOffHandWeapon).ToList();
         var twoHands = filteredItems.Where(Item.IsTwoHandWeapon).ToList();
         
+        if(requirements != null && requirements.Length > 0)
+        {
+            foreach (var requirement in requirements)
+            {
+                var amuletGamer = requirement.Amulet != null ? [requirement.Amulet] : amulets;
+                var ringOneGamer = requirement.RingOne != null ? [requirement.RingOne] : rings;
+                var ringTwoGamer = requirement.RingTwo != null ? [requirement.RingOne] : rings;
+                var bootGamer = requirement.Boot != null ? [requirement.Boot] : boots;
+                var beltGamer = requirement.Belt != null ? [requirement.Belt] : belts;
+                var helmetGamer = requirement.Helmet != null ? [requirement.Helmet] : helmets;
+                var epauletteGamer = requirement.Epaulette != null ? [requirement.Epaulette] : epaulettes;
+                var breastplateGamer = requirement.Breastplate != null ? [requirement.Breastplate] : breastplates;
+                var cloakGamer = requirement.Cloak != null ? [requirement.Cloak] : cloaks;
+                var emblemGamer = requirement.Emblem != null ? [requirement.Emblem] : emblems;
+                var petGamer = requirement.Pet != null ? [requirement.Pet] : pets;
+
+                //var twoHands2 = requirement.TwoHand ?? (List<ItemIndentified>)twoHands;
+
+
+                var oneHands2 = requirement.MainHand != null ? [requirement.MainHand] : oneHands;
+                var offHands2 = requirement.OffHand != null ? [requirement.OffHand] : offHands;
+                
+                if(requirement.MainHand != null && requirement.OffHand != null)
+                {
+                    if (Item.IsOneHandWeapon(requirement.MainHand))
+                    {
+                    //var offHands2 = requirement.OffHand != null ? [requirement.OffHand] : offHands;
+
+                    }
+                }
+                
+
+            }
+        }
+
+
         foreach (var amulet in amulets)
         foreach (var ringOne in rings)
         foreach (var ringTwo in rings) 
@@ -43,99 +79,131 @@ public class BuildGenerator
         foreach (var cloak in cloaks)
         foreach (var emblem in emblems)
         foreach (var pet in pets)
-        foreach (var mainHand in oneHands)
-        foreach (var offHand in offHands)
         {
-            var amuletElements = GenerateRandomElements(amulet);
-            var ringOneElements = GenerateRandomElements(ringOne);
-            var ringTwoElements = GenerateRandomElements(ringTwo);
-            var bootElements = GenerateRandomElements(boot);
-            var beltElements = GenerateRandomElements(belt);
-            var helmetElements = GenerateRandomElements(helmet);
-            var epauletteElements = GenerateRandomElements(epaulette);
-            var breastplateElements = GenerateRandomElements(breastplate);
-            var cloakElements = GenerateRandomElements(cloak);
-            var emblemElements = GenerateRandomElements(emblem);
-            var petElements = GenerateRandomElements(pet);
-            var mainHandElements = GenerateRandomElements(mainHand);
-            var offHandElements = GenerateRandomElements(offHand);
-
+            var amuletIndentifieds = GenerateRandomElements(amulet);
+            var ringOneIndentifieds = GenerateRandomElements(ringOne);
+            var ringTwoIndentifieds = GenerateRandomElements(ringTwo);
+            var bootIndentifieds = GenerateRandomElements(boot);
+            var beltIndentifieds = GenerateRandomElements(belt);
+            var helmetIndentifieds = GenerateRandomElements(helmet);
+            var epauletteIndentifieds = GenerateRandomElements(epaulette);
+            var breastplateIndentifieds = GenerateRandomElements(breastplate);
+            var cloakIndentifieds = GenerateRandomElements(cloak);
 
             if (includeEnchantments)
             {
-                var enchantedAmulets = GenerateEnchantedItems(amulet);
-                var enchantedRingOnes = GenerateEnchantedItems(ringOne);
-                var enchantedRingTwos = GenerateEnchantedItems(ringTwo);
-                var enchantedBootss = GenerateEnchantedItems(boot);
-                var enchantedBelts = GenerateEnchantedItems(belt);
-                var enchantedHelmets = GenerateEnchantedItems(helmet);
-                var enchantedEpaulettess = GenerateEnchantedItems(epaulette);
-                var enchantedBreastplates = GenerateEnchantedItems(breastplate);
-                var enchantedCapes = GenerateEnchantedItems(cloak);
-                var enchantedMainHands = GenerateEnchantedItems(mainHand);
-                var enchantedOffHands = GenerateEnchantedItems(offHand);
+                amuletIndentifieds = amuletIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                ringOneIndentifieds = ringOneIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                ringTwoIndentifieds = ringTwoIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                bootIndentifieds = bootIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                beltIndentifieds = beltIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                helmetIndentifieds = helmetIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                epauletteIndentifieds = epauletteIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                breastplateIndentifieds = breastplateIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                cloakIndentifieds = cloakIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+            }
 
-                foreach (var enchantedAmulet in enchantedAmulets)
-                foreach (var enchantedRingOne in enchantedRingOnes)
-                foreach (var enchantedRingTwo in enchantedRingTwos) 
-                foreach (var enchantedBoots in enchantedBootss)
-                foreach (var enchantedBelt in enchantedBelts)
-                foreach (var enchantedHelmet in enchantedHelmets)
-                foreach (var enchantedEpaulettes in enchantedEpaulettess)
-                foreach (var enchantedBreastplate in enchantedBreastplates)
-                foreach (var enchantedCape in enchantedCapes)
-                foreach (var enchantedMainHand in enchantedMainHands)
-                foreach (var enchantedOffHand in enchantedOffHands)
+            foreach (var twoHand in twoHands)
+            {
+                var twoHandIndentifieds = GenerateRandomElements(twoHand);
+                
+                if (includeEnchantments)
+                {
+                    twoHandIndentifieds = twoHandIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                }
+
+                foreach (var amuletIndentified in amuletIndentifieds)
+                foreach (var ringOneIndentified in ringOneIndentifieds)
+                foreach (var ringTwoIndentified in ringTwoIndentifieds)
+                foreach (var bootIndentified in bootIndentifieds)
+                foreach (var beltIndentified in beltIndentifieds)
+                foreach (var helmetIndentified in helmetIndentifieds)
+                foreach (var epauletteIndentified in epauletteIndentifieds)
+                foreach (var breastplateIndentified in breastplateIndentifieds)
+                foreach (var cloakIndentified in cloakIndentifieds)
+                // weapom
+                foreach (var twoHandIndentified in twoHandIndentifieds)
                 {
                     var build = new Build
                     {
-                        Amulet = enchantedAmulet,
-                        RingOne = enchantedRingOne,
-                        RingTwo = enchantedRingTwo,
-                        Boots = enchantedBoots,
-                        Belt = enchantedBelt,
-                        Helmet = enchantedHelmet,
-                        Epaulettes = enchantedEpaulettes,
-                        Breastplate = enchantedBreastplate,
-                        Cape = enchantedCape,
+                        Amulet = amuletIndentified,
+                        RingOne = ringOneIndentified,
+                        RingTwo = ringTwoIndentified,
+                        Boot = bootIndentified,
+                        Belt = beltIndentified,
+                        Helmet = helmetIndentified,
+                        Epaulette = epauletteIndentified,
+                        Breastplate = breastplateIndentified,
+                        Cloak = cloakIndentified,
                         Emblem = (ItemIndentified)emblem,
                         Pet = (ItemIndentified)pet,
-                        MainHand = enchantedMainHand,
-                        OffHand = enchantedOffHand,
-                    };    
+                        MainHand = twoHandIndentified,
+                        OffHand = null,
+                    };
+
+                    if (lateFilter?.Invoke(build) == false) continue;
+
+                    var Score = scoringFunc(build);
+                }
+            }
+            
+            foreach (var oneHand in oneHands)
+            foreach (var offHand in offHands)
+            {
+                var oneHandIndentifieds = GenerateRandomElements(oneHand);
+                var offHandIndentifieds = GenerateRandomElements(offHand);
+
+                if (includeEnchantments)
+                {
+                    oneHandIndentifieds = oneHandIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                    offHandIndentifieds = offHandIndentifieds.SelectMany(GenerateEnchantedItems).ToList();
+                }
+
+                foreach (var amuletIndentified in amuletIndentifieds)
+                foreach (var ringOneIndentified in ringOneIndentifieds)
+                foreach (var ringTwoIndentified in ringTwoIndentifieds)
+                foreach (var bootIndentified in bootIndentifieds)
+                foreach (var beltIndentified in beltIndentifieds)
+                foreach (var helmetIndentified in helmetIndentifieds)
+                foreach (var epauletteIndentified in epauletteIndentifieds)
+                foreach (var breastplateIndentified in breastplateIndentifieds)
+                foreach (var cloakIndentified in cloakIndentifieds)
+                // weapom
+                foreach (var oneHandIndentified in oneHandIndentifieds)
+                foreach (var offHandIndentified in offHandIndentifieds)
+                {
+                    var build = new Build
+                    {
+                        Amulet = amuletIndentified,
+                        RingOne = ringOneIndentified,
+                        RingTwo = ringTwoIndentified,
+                        Boot = bootIndentified,
+                        Belt = beltIndentified,
+                        Helmet = helmetIndentified,
+                        Epaulette = epauletteIndentified,
+                        Breastplate = breastplateIndentified,
+                        Cloak = cloakIndentified,
+                        Emblem = (ItemIndentified)emblem,
+                        Pet = (ItemIndentified)pet,
+                        MainHand = oneHandIndentified,
+                        OffHand = offHandIndentified,
+                    };
 
                     if (lateFilter?.Invoke(build) == false) continue;
                     
                     var Score = scoringFunc(build);
                 }
             }
-            else
-            {
-                var build = new Build
-                {
-                    Amulet = (ItemIndentified)amulet,
-                    RingOne = (ItemIndentified)ringOne,
-                    RingTwo = (ItemIndentified)ringTwo,
-                    Boots = (ItemIndentified)boot,
-                    Belt = (ItemIndentified)belt,
-                    Helmet = (ItemIndentified)helmet,
-                    Epaulettes = (ItemIndentified)epaulette,
-                    Breastplate = (ItemIndentified)breastplate,
-                    Cape = (ItemIndentified)cloak,
-                    Emblem = (ItemIndentified)emblem,
-                    Pet = (ItemIndentified)pet,
-                    MainHand = (ItemIndentified)mainHand,
-                    OffHand = (ItemIndentified)offHand,
-                };  
-
-                if (lateFilter?.Invoke(build) == false) continue;
-             
-                var Score = scoringFunc(build);
-            }
         }
-
         return result;
     }
+
+
+    public void Asd<T>(IEnumerable<T> a, int top)
+    {
+
+    }
+
 
     private static List<ItemIndentified> GenerateRandomElements(Item item)
     {
@@ -187,7 +255,7 @@ public class BuildGenerator
         return result;
     }
 
-    private static List<ItemIndentified> GenerateEnchantedItems(Item item)
+    private static List<ItemIndentified> GenerateEnchantedItems(ItemIndentified item)
     {            
         List<ItemIndentified> results = [];
         EnchatmentType[] enchatmentType = [EnchatmentType.Red, EnchatmentType.Green, EnchatmentType.Blue];

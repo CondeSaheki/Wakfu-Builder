@@ -4,11 +4,11 @@ public enum ItemType
 {
     Amulet = 120,
     Ring = 103,
-    Boots = 119,
+    Boot = 119,
     Cloak = 132,
     Belt = 133,
     Helmet = 134,
-    Epaulettes = 138,
+    Epaulette = 138,
     Breastplate = 136,
 
     Sword = 110,

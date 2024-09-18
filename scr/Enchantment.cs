@@ -18,21 +18,21 @@ public class Enchantment
 
     //red
     public static Enchantment MeleeMastery = new("Melee Mastery", "1 Melee Mastery per level", 1, (item) => item.Type == ItemType.Cloak || item.Type == ItemType.Helmet);
-    public static Enchantment EarthResistance = new("Earth Resistance", "2 Earth Resistance per level", 2, (item) => item.Type == ItemType.Boots || item.Type == ItemType.Breastplate);
+    public static Enchantment EarthResistance = new("Earth Resistance", "2 Earth Resistance per level", 2, (item) => item.Type == ItemType.Boot || item.Type == ItemType.Breastplate);
     public static Enchantment DistanceMastery = new("Distance Mastery", "1 Distance Mastery per level", 1, (item) => item.Type == ItemType.Belt || Item.IsMainHand(item));
     public static Enchantment BerserkMastery = new("Berserk Mastery", "1 Berserk Mastery per level", 1, (item) => item.Type == ItemType.Cloak || item.Type == ItemType.Amulet);
     // green
     public static Enchantment Dodge = new("Dodge", "3 Dodge per level", 3, (item) => item.Type == ItemType.Ring);
     public static Enchantment Initiative = new("Initiative", "2 Initiative per level", 2, (item) => item.Type == ItemType.Cloak || item.Type == ItemType.Amulet);
     public static Enchantment FireResistance = new("Fire Resistance", "2 Fire Resistance per level", 2, (item) => item.Type == ItemType.Belt || item.Type == ItemType.Breastplate);
-    public static Enchantment CriticalMastery = new("Critical Mastery", "1 Critical Mastery per level", 1, (item) => item.Type == ItemType.Epaulettes || Item.IsMainHand(item));
-    public static Enchantment RearMastery = new("Rear Mastery", "1 Rear Mastery per level", 1, (item) => item.Type == ItemType.Belt || item.Type == ItemType.Boots);
+    public static Enchantment CriticalMastery = new("Critical Mastery", "1 Critical Mastery per level", 1, (item) => item.Type == ItemType.Epaulette || Item.IsMainHand(item));
+    public static Enchantment RearMastery = new("Rear Mastery", "1 Rear Mastery per level", 1, (item) => item.Type == ItemType.Belt || item.Type == ItemType.Boot);
 
     //blue
     public static Enchantment Life = new("Life", "4 HP per level", 4, (item) => item.Type == ItemType.Helmet || Item.IsMainHand(item));
-    public static Enchantment WaterResistance = new("Water Resistance", "2 Water Resistance per level", 2, (item) => item.Type == ItemType.Epaulettes || item.Type == ItemType.Breastplate);
+    public static Enchantment WaterResistance = new("Water Resistance", "2 Water Resistance per level", 2, (item) => item.Type == ItemType.Epaulette || item.Type == ItemType.Breastplate);
     public static Enchantment AirResistance = new("Air Resistance", "2 Air Resistance per level", 2, (item) => item.Type == ItemType.Cloak || item.Type == ItemType.Breastplate);
-    public static Enchantment HealingMastery = new("Healing Mastery", "1 Healing Mastery per level", 1, (item) => item.Type == ItemType.Epaulettes || item.Type == ItemType.Amulet);
+    public static Enchantment HealingMastery = new("Healing Mastery", "1 Healing Mastery per level", 1, (item) => item.Type == ItemType.Epaulette || item.Type == ItemType.Amulet);
     public static Enchantment ElementalMastery = new("Elemental Mastery", "1 Elemental Mastery per level", 1, (item) => item.Type == ItemType.Cloak || item.Type == ItemType.Breastplate);
     public static Enchantment Lock = new("Lock", "3 Lock per level", 3, (item) => item.Type == ItemType.Ring);
 

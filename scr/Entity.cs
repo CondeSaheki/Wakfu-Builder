@@ -52,11 +52,11 @@ public class Entity
         if (build.Amulet != null) ApplyItem(build.Amulet);
         if (build.RingOne != null) ApplyItem(build.RingOne);
         if (build.RingTwo != null) ApplyItem(build.RingTwo);
-        if (build.Boots != null) ApplyItem(build.Boots);
-        if (build.Cape != null) ApplyItem(build.Cape);
+        if (build.Boot != null) ApplyItem(build.Boot);
+        if (build.Cloak != null) ApplyItem(build.Cloak);
         if (build.Belt != null) ApplyItem(build.Belt);
         if (build.Helmet != null) ApplyItem(build.Helmet);
-        if (build.Epaulettes != null) ApplyItem(build.Epaulettes);
+        if (build.Epaulette != null) ApplyItem(build.Epaulette);
         if (build.Breastplate != null) ApplyItem(build.Breastplate);
         if (build.Emblem != null) ApplyItem(build.Emblem);
         if (build.Pet != null) ApplyItem(build.Pet);
